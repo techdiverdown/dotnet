@@ -1,0 +1,14 @@
+
+POST {{host}}/products
+Content-Type: application/json
+
+{
+  "Name": "Macbook Pro M3 Max",
+  "Category": "Electronics",
+  "Subcategory": "Laptops for John"
+}
+> {%  client.global.set("uri", response.headers.valueOf("Location")) %}
+
+### get
+
+GET {{uri}}

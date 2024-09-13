@@ -1,0 +1,16 @@
+
+
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=JetBrains Rider
+
+###
+POST http://localhost:8080
+Authorization: Bearer {{token}}
+Content-Type: appication/json
+
+{
+    "Name": "MacBook Pro M3 Max",
+    "Category": "Electronics",
+    "Subcategory: "Laptops"
+}

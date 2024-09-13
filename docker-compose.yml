@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  # asp.net web app
+  webapp:
+    container_name: onereview
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      
+  db:
+    container_name: one-review-db
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: onereview
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: strong_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+        
+volumes:
+  postgres_data:
+    
