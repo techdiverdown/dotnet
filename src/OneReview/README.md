@@ -1,4 +1,4 @@
-# Learn Best API Practies from AmiChai Mantiband
+# Learn Best API Practices from AmiChai Mantiband
 
 This is from a youtube video tutorial by Amichai Mantiband
 
