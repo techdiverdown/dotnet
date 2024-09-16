@@ -16,4 +16,4 @@ Code a webapi with C# and follow best practices using clean architecture princip
 ## Installation
 
 ## Running Tests
-The code can be run by running the Program.cs file and using the ....
+The code can be run by running the Program.cs file and using the built-in Kestrel web server
