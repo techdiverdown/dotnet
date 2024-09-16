@@ -12,6 +12,8 @@
     
     <ItemGroup>
         <EmbeddedResource Include="Persistence/Datbase/Scripts/*.sql" />
+        <None Remove="Persistence\Database\Scripts\001_InitializeDatabase.sql" />
+        <EmbeddedResource Include="Persistence\Database\Scripts\001_InitializeDatabase.sql" />
     </ItemGroup>
     
 </Project>

@@ -1,7 +1,7 @@
 using System.Reflection;
 using DbUp;
 
-namespace OneReview.Persistence.Database.Scripts
+namespace OneReview.Persistence.Database
 {
     public static class DbInitializer
     {
@@ -10,9 +10,9 @@ namespace OneReview.Persistence.Database.Scripts
             // Ensure the postgresdb exists
             EnsureDatabase.For.PostgresqlDatabase(connectionString);
             
-            // Run scripts in order
-            var upgrader = DeployChanges.To.PostgresqlDatabase(connectionString)
-                .WithScriptsEmbeddedInAssemblies(new[] { Assembly.GetExecutingAssembly() })
+            var upgrader = DeployChanges.To
+                .PostgresqlDatabase(connectionString)
+                .WithScriptsEmbeddedInAssembly(Assembly.GetExecutingAssembly()) // get hold of all the sql scripts
                 .WithTransaction()
                 .LogToConsole()
                 .Build();
@@ -21,7 +21,7 @@ namespace OneReview.Persistence.Database.Scripts
 
             if (!result.Successful)
             {
-                throw new Exception("Database upgrade failed", result.Error);
+                throw new InvalidOperationException("Database upgrade failed", result.Error);
             }
         }
     }
